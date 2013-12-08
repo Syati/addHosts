@@ -18,13 +18,15 @@ hosts=(
 
 2. あとは以下のコマンド
     * 追加
-    ```sh
-    sudo addHosts add
-    ```
+    
+```sh
+sudo addHosts add
+```
     * 削除
-    ```sh
-    sudo addHosts clean
-    ```
+
+```sh
+sudo addHosts clean
+```
 
 その他
 --------
