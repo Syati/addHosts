@@ -1,0 +1,41 @@
+#!/bin/sh
+
+prog="addhosts"
+hostsFile="/etc/hosts"
+IFS='|'
+
+hosts=(
+    "IP FQDN1"
+    "IP FQDN2"
+)
+
+add() {
+    echo "\n" >> $hostsFile
+    for i in ${hosts[@]}; do
+        if [ $(grep -e "${i}" /etc/hosts | wc -m) -eq 0 ] ; then
+            echo "${i}" >> $hostsFile
+        else
+            echo "already exists ${i}"
+        fi
+    done
+}
+
+clean() {
+    echo "${hosts[*]}|^$"
+    cp $hostsFile $hostsFile.back
+    egrep -v "${hosts[*]}|^$" $hostsFile > $hostsFile.tmp
+    mv -f $hostsFile.tmp $hostsFile
+}
+
+case "$1" in
+    add)
+        add
+        ;;
+    clean)
+        clean
+        ;;
+    *)
+        echo $"Usage: $prog {add|clean}"
+esac
+
+exit 0
