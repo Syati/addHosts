@@ -7,7 +7,7 @@ addHosts
 利用方法
 --------
 
-1. addHosts 内の以下の*"IP FQDN"* を書き換える。
+addHosts 内の以下の*"IP FQDN"* を書き換える。
 
 ```sh
 hosts=(
@@ -16,13 +16,18 @@ hosts=(
 )
 ```
 
-2. あとは以下のコマンド
-    * 追加
-    
+後は *コマンド* を叩くだけ
+
+コマンド
+--------
+
+* 追加
+   
 ```sh
 sudo addHosts add
 ```
-    * 削除
+
+* 削除
 
 ```sh
 sudo addHosts clean
